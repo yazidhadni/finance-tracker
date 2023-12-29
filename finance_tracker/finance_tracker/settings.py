@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-import os
 from pathlib import Path
 
 from decouple import config
@@ -43,7 +42,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "authentication",
     "tracker",
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
+
+# Django Crispy Forms settings
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -86,21 +91,21 @@ WSGI_APPLICATION = "finance_tracker.wsgi.application"
 #     }
 # }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'user_data_ftracker_db',
-        'USER': config('DATABASE_USER'),
-        'PASSWORD': config('DATABASE_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '5432',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "user_data_ftracker_db",
+        "USER": config("DATABASE_USER"),
+        "PASSWORD": config("DATABASE_PASSWORD"),
+        "HOST": "localhost",
+        "PORT": "5432",
     },
-    'financial': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'financial_data_ftracker_db',
-        'USER': config('DATABASE_USER'),
-        'PASSWORD': config('DATABASE_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '5432',
+    "financial": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "financial_data_ftracker_db",
+        "USER": config("DATABASE_USER"),
+        "PASSWORD": config("DATABASE_PASSWORD"),
+        "HOST": "localhost",
+        "PORT": "5432",
     },
 }
 
@@ -147,3 +152,6 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "authentication.CustomUser"
+
+LOGIN_REDIRECT_URL = '/home'
+LOGout_REDIRECT_URL = '/login'
