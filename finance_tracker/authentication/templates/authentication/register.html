@@ -1,13 +1,16 @@
-{% extends 'authentication/base.html' %} {% block title%} Registration
-{%endblock%} {% block content %}
-<h2>Register</h2>
+{% extends 'authentication/base.html' %} 
+{% block title%} Registration {%endblock%} 
+{% block content %}
+  <h2>Register</h2>
+    {% if form.errors %} 
+      {{ form.errors }} 
+    {% endif %} 
+  <form method="post" action="{% url 'register' %}">
+    {% csrf_token %} 
+    {{ form.as_p }}
 
-<form method="post" action="{% url 'register' %}">
-  {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Register</button>
+  </form>
 
-  <button type="submit">Register</button>
-</form>
-
-{% comment %}
 <p>Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
-{% endcomment %} {% endblock %}
+{% endblock %}
