@@ -1,4 +1,5 @@
 from django import forms
+from bootstrap_datepicker_plus.widgets import DatePickerInput
 
 from .models import Investment
 
@@ -17,12 +18,9 @@ class InvestmentForm(forms.ModelForm):
             "source",
         ]
 
-    widgets = {
-        "date_invested": forms.DateInput(attrs={"type": "date"}),
-        "amount": forms.TextInput(
-            attrs={"placeholder": "Enter the investment amount in USD"}
-        ),
-    }
+        widgets = {
+            "date_invested": DatePickerInput(),
+        }
 
     # validators
     def clean_amount(self):

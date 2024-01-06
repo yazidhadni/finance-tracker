@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "tracker",
     "crispy_forms",
     "crispy_bootstrap5",
+    "bootstrap_datepicker_plus",
 ]
 
 # Django Crispy Forms settings
