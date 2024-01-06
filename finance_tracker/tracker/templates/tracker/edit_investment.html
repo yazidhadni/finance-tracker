@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Modify investment</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ edit_form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <hr>
+    <h3>Delete investment</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ delete_form }}
+        <button type="submit">Delete</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{ edit_form.media }}
+{% endblock content %}

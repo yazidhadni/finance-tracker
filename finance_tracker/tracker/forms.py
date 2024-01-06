@@ -5,6 +5,8 @@ from .models import Investment
 
 
 class InvestmentForm(forms.ModelForm):
+    edit_investment = forms.BooleanField(widget=forms.HiddenInput, initial=True)
+
     class Meta:
         model = Investment
         fields = [
@@ -28,3 +30,7 @@ class InvestmentForm(forms.ModelForm):
         if amount is not None and amount < 0:
             raise forms.ValidationError("Amount must be a non-negative value.")
         return amount
+
+
+class DeleteInvestmentForm(forms.Form):
+    delete_investment = forms.BooleanField(widget=forms.HiddenInput, initial=True)

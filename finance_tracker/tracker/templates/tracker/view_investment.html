@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block title %}Investment{% endblock %}
 {%block content %}
     <h2>{{ investment.name }}</h2>
+    <p><a href="{% url 'tracker:edit_investment' investment.id %}">Modify investment?</a></p>
     <ul>
         <li>Amout: {{ investment.amount }}</li>
         <li>Currency: {{ investment.currency }}</li>
