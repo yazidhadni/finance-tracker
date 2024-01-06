@@ -93,15 +93,7 @@ WSGI_APPLICATION = "finance_tracker.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "user_data_ftracker_db",
-        "USER": config("DATABASE_USER"),
-        "PASSWORD": config("DATABASE_PASSWORD"),
-        "HOST": "localhost",
-        "PORT": "5432",
-    },
-    "financial": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "financial_data_ftracker_db",
+        "NAME": "tracker_db",
         "USER": config("DATABASE_USER"),
         "PASSWORD": config("DATABASE_PASSWORD"),
         "HOST": "localhost",
