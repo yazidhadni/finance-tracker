@@ -7,6 +7,8 @@ from django.contrib.auth.views import (
 
 from . import views
 
+app_name = "authentication"
+
 urlpatterns = [
     path(
         "",
@@ -19,7 +21,8 @@ urlpatterns = [
     path(
         "change-password/",
         PasswordChangeView.as_view(
-            template_name="authentication/password_change_form.html"
+            template_name="authentication/password_change_form.html",
+            success_url="/auth/change-password-done/",
         ),
         name="password_change",
     ),
@@ -30,6 +33,5 @@ urlpatterns = [
         ),
         name="password_change_done",
     ),
-    path("home/", views.home, name="home"),
     path("sign-up/", views.register, name="register"),
 ]

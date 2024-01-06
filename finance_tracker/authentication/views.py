@@ -6,14 +6,9 @@ from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm
 
 
-@login_required
-def home(request):
-    return render(request, "authentication/home.html")
-
-
 def logout_user(request):
     logout(request)
-    return redirect("login")
+    return redirect("authentication:login")
 
 
 def register(request):
