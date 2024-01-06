@@ -1,5 +1,16 @@
 {% extends 'base.html' %} {% block title %}Home{% endblock %}
 {%block content %}
-<p>You're connected baby!</p>
-<p>Click <a href={% url 'tracker:add_investment' %}>here</a> to add an investment.</p>
+    <p>You're connected baby!</p>
+    <p>Click <a href={% url 'tracker:add_investment' %}>here</a> to add an investment.</p>
+    <br>
+    <div>
+        {% for investment in investments %}
+            <div class="post">
+                Name:<a href="{% url 'tracker:view_investment' investment.id %}">
+                    {{ investment.name }}
+                </a>
+                <p>Date: {{ investment.date_invested }}</p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

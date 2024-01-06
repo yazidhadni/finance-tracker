@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import InvestmentForm
 from .models import Investment
@@ -23,3 +23,9 @@ def add_investment(request):
     else:
         form = InvestmentForm()
     return render(request, "tracker/add_investment.html", {"form": form})
+
+
+@login_required
+def view_investment(request, investment_id):
+    investment = get_object_or_404(Investment, id=investment_id)
+    return render(request, "tracker/view_investment.html", {"investment": investment})
