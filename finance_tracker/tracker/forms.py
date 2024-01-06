@@ -16,6 +16,11 @@ class InvestmentForm(forms.ModelForm):
             "investment_type",
             "source",
         ]
+    
+    widgets = {
+        'date_invested': forms.DateInput(attrs={'type': 'date'}),
+        'amount': forms.TextInput(attrs={'placeholder': 'Enter the investment amount in USD'}),
+    }
 
     # validators
     def clean_amount(self):

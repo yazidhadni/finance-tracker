@@ -19,7 +19,7 @@ def add_investment(request):
             investment = form.save(commit=False)
             investment.user = request.user
             investment.save()
-            return redirect("home")
+            return redirect("tracker:home")
     else:
         form = InvestmentForm()
     return render(request, "tracker/add_investment.html", {"form": form})
